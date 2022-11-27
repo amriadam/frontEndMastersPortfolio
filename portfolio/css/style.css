@@ -1,0 +1,182 @@
+:root {
+    --black: #131A40;
+    --bluea: #0FC2C0;
+    --blueb: #0CABA8;
+    --bluec: #008F8C;
+    --blued: #015958;
+    --bluee: #86fbfb;
+    --bluef: #023535;
+    --white: #f7f8fa;
+    --font-size: 1.3rem;
+    --mono: "Oxygen mono", monospace;
+    --sans: Oxygen, sans-serif;
+}
+/* border box model: https://css-tricks.com/box-sizing/ */
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+body{
+  padding:0;
+  margin : 0;
+  font-family: var(--sans);
+  background-color: var(--black);
+  color : var(--white);
+  font-size : var(--font-size)
+}
+h1,h2,h3{
+  margin : 0;
+}
+a{
+  color : var(--bluee);
+}
+a:hover{
+  color: var(--blueb);
+  text-decoration : none;/*remove the underline when hover*/
+}
+#intro{
+  padding: 4rem 1rem 10rem 1rem;
+  padding-bottom: 10rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#intro p{
+  font-size : 1rem;
+  line-height:1.5;/*no unit here its proportionate to the font size*/
+}
+#intro .name{
+  font-family : var(--mono);
+}
+.name span {
+  font-family : var(--sans);
+  font-size : 4rem;
+  color  : var(--bluee);
+  display : block;/*span is initially inline with the p, so we need to set it to block to be in its own line*/
+}
+#intro h2 {
+  color : var(--bluec);
+  font-size : 4rem;
+  font-weight : normal;
+}
+#contact {
+  width:400px;
+  /**background-color : var(--blued);*/
+  text-align: center;
+  margin: 0 auto;
+  padding :3rem 0;
+}
+#contact p{
+  font-size : 1rem;
+  line-height:1.5;/*no unit here its proportionate to the font size*/
+  margin : 0;
+}
+
+#contact h2{
+  margin:1rem;
+}
+#contact p:last-child{
+  line-height:1.5;/*no unit here its proportionate to the font size*/
+  margin-top: 3rem;
+}
+/*we want this element to occupy all the space aailable (100%) then the other elements will have to go to the next line :*/
+nav li:first-child{
+  flex-basis : 100%;
+  text-align:center;
+}
+nav{
+  font-family : var(--mono) ;
+  font-size : 80%;
+  padding : 1rem;
+}
+/*this is attribute selector, it will look for elements with classes  with fa in them and apply the css to them*/
+nav [class *="fa"] {
+  font-size : 150%;
+  color : var(--bluee);
+}
+nav [class *="fa"]:hover {
+  color : var(--bluea);
+}
+nav h1 [class *="fa"]{/*for the icon next to adam we  want it as big as Adam*/
+  font-size : 100%;
+  color : var(--bluee);
+}
+nav h1 a {
+  font-family : var(--sans);
+}
+nav ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  /***********************************/
+  display : flex;
+  flex-flow: row wrap;
+  justify-content : center; /*center horizontally */
+  align-items : center;/*align vertically*/
+  /***********************************/
+  gap : 2rem;
+}
+nav a{
+  color: var(--white);
+  text-decoration:none;
+  display : block;/*we did this because we want the link to fill the whole clickable area*/
+}
+nav a:hover{
+  color : var(--bluee);
+}
+
+.button{
+  background-color : var(--blueb);
+  border : 1px solid var(--blueb);
+  border-radius : 3px;
+  padding : 0.2rem;
+}
+.button:hover{
+  color : var(--white);
+  background-color : var(--bluec);
+}
+
+footer{
+  text-align: center;
+}
+
+/*this is attribute selector, it will look for elements with classes  with fa in them and apply the css to them*/
+footer [class *="fa"] {
+  font-size : 200%;
+  color : var(--bluee);
+}
+footer [class *="fa"]:hover{
+   color : var(--blueb);
+}
+footer ul{
+  list-style-type: none;
+  padding: 0rem;
+  margin: 2rem 0;
+  /***********************************/
+  display : flex;
+  flex-flow: row wrap;
+  justify-content : center; /*center horizontally */
+  align-items : center;/*align vertically*/
+  gap : 3rem;
+  font-size : 3rem;
+  /***********************************/
+}
+footer p{
+  padding : 0.4rem;
+}
+
+/*responsive : */
+@media (min-width:850px){
+    nav{
+      max-width : 1200px;
+      margin : 0 auto;
+    }
+    nav li:first-child{
+      flex-basis : auto;
+      text-align : left;
+      margin-right : auto;/*putting the space between the logo and the nav items*/
+    }
+  }
